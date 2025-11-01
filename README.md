@@ -69,6 +69,38 @@ docker-compose up --build
 - Visit `/api-docs` (if using Swagger) OR see the provided Postman collection in the `docs/` directory.
 - Example:  
   - [API Swagger Docs](http://localhost:5000/api-docs)
+## 5.1 API Endpoints Overview
+
+### Auth
+
+- **POST `/api/v1/auth/login`**  
+  Login, get JWT token.  
+  Request: `{ email, password }`  
+  Response: `{ token, user }`
+
+### Organisations
+
+- **GET `/api/v1/orgs`**  
+  List all orgs (superadmin only).
+- **POST `/api/v1/orgs`**  
+  Create org (superadmin only).
+- **GET `/api/v1/orgs/:orgId`**
+- **PATCH `/api/v1/orgs/:orgId`**
+- **DELETE `/api/v1/orgs/:orgId`**
+
+### Admins
+
+- **GET `/api/v1/orgs/:orgId/admins`**
+- **POST `/api/v1/orgs/:orgId/admins`**
+- **PATCH `/api/v1/orgs/:orgId/admins/:adminId`**
+- **DELETE `/api/v1/orgs/:orgId/admins/:adminId`**
+
+### Customers
+
+- **GET `/api/v1/orgs/:orgId/customers`**
+- **POST `/api/v1/orgs/:orgId/customers`**
+- **PATCH `/api/v1/orgs/:orgId/customers/:id`**
+- **DELETE `/api/v1/orgs/:orgId/customers/:id`**
 
 ---
 
