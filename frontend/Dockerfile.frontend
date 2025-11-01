@@ -1,0 +1,32 @@
+# Use official Node image for building the app
+FROM node:18-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files and install deps
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# Copy entire source code
+COPY . .
+
+# Build Next.js app
+RUN npm run build
+
+# Use a lighter image for runtime
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# Copy build output and node_modules from builder stage
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+# Expose port (Next.js default)
+EXPOSE 3000
+
+# Start Next.js in production mode
+CMD ["npm", "start"]
