@@ -64,12 +64,7 @@ docker-compose up --build
 
 ---
 
-## 5. API Documentation
-
-- Visit `/api-docs` (if using Swagger) OR see the provided Postman collection in the `docs/` directory.
-- Example:  
-  - [API Swagger Docs](http://localhost:5000/api-docs)
-## 5.1 API Endpoints Overview
+## 5. API Endpoints Overview
 
 ### Auth
 
@@ -150,7 +145,7 @@ A link or attachment to a screen recording demonstrating:
 - Organisation CRUD
 - Admin/customer CRUD
 - Protected API and error handling
-
+- Live video link - [https://drive.google.com/file/d/1ocPkyyhpWOQrwiPJgy50zuG2JoBGyXBP/view?usp=sharing]
 ---
 
 ## 10. Example Environment Variables
