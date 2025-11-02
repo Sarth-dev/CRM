@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "CRM API Collection",
+    "description": "API documentation for the CRM application, covering authentication, organisation, admin, and customer routes.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "v1", "auth", "login"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"superadmin@example.com\",\n  \"password\": \"password123\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Organisations",
+      "item": [
+        {
+          "name": "Get All Organisations",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/orgs"
+          }
+        },
+        {
+          "name": "Create Organisation",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "http://localhost:5000/api/v1/orgs",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"New Org\",\n  \"description\": \"Sample organisation\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Organisation by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId"
+          }
+        },
+        {
+          "name": "Update Organisation",
+          "request": {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Org Name\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Organisation",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admins",
+      "item": [
+        {
+          "name": "Get All Admins",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/admins"
+          }
+        },
+        {
+          "name": "Create Admin",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/admins",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Admin",
+          "request": {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/admins/:adminId",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Admin Name\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Admin",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/admins/:adminId"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/customers"
+          }
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/customers",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"phone\": \"9876543210\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/customers/:id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"9876540000\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5000/api/v1/orgs/:orgId/customers/:id"
+          }
+        }
+      ]
+    }
+  ]
+}
