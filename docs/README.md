@@ -180,7 +180,7 @@ DELETE /api/v1/projects/:id
 ## 📄 Postman Collection
 
 You can find the Postman collection in this folder:
-`CRM_API_Collection.postman_collection.json`
+`API_Collection.postman_collection.json`
 
 ---
 
@@ -201,7 +201,4 @@ docker-compose up --build
 
 ```
 
----
-
-Would you like me to also give you a **matching Postman collection JSON** (with the same routes) to upload alongside this file? That would make your API docs folder fully complete for submission.
 ```
